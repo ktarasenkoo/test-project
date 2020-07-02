@@ -11,15 +11,13 @@ import 'react-vis/dist/style.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './static/assets/style.scss';
 
-const Root = () => {
-  return (
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <Charts />
-        <ToastContainer />
-      </PersistGate>
-    </Provider>
-  );
-};
+const App = () => (
+  <Provider store={store}>
+    <PersistGate persistor={persistor}>
+      <Charts />
+      <ToastContainer />
+    </PersistGate>
+  </Provider>
+);
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
