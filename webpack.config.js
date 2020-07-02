@@ -63,5 +63,8 @@ module.exports = {
       }],
     }),
     new Dotenv(),
+    new webpack.DefinePlugin({
+      _isDev_: isDev,
+    }),
   ],
 };

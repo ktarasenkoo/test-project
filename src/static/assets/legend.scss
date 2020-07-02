@@ -1,0 +1,30 @@
+.legends {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .legend-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 40px;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    .legend-line {
+      width: 40px;
+      height: 3px;
+      margin-right: 10px;
+
+      &.CAC40 {
+        background: #559CD1;
+      }
+
+      &.NASDAQ {
+        background: #F17C40;
+      }
+    }
+  }
+}

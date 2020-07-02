@@ -15,7 +15,7 @@ const Charts = () => {
   const dispatch = useDispatch();
   const [start, setStart] = useState(false);
 
-  const error = useSelector((store) => store.data.data.error);
+  const error = useSelector((store) => store.data.error);
 
   const data = useSelector((store) => store.data.data);
 
@@ -68,23 +68,38 @@ const Charts = () => {
 
   return (
     <div id="container">
-      <XYPlot
-        width={window.innerWidth}
-        height={window.innerHeight * 0.7}
-      >
-        <VerticalGridLines />
-        <HorizontalGridLines />
-        <LineSeries
-          data={nasdaqCoords}
-        />
-        <LineSeries
-          data={cac40Coords}
-        />
-        <XAxis />
-        <YAxis />
-      </XYPlot>
-      <table>
-        <tbody>
+      <div id="charts">
+        <XYPlot
+          width={window.innerWidth - 40}
+          height={window.innerHeight * 0.7 - 20}
+        >
+          <VerticalGridLines />
+          <HorizontalGridLines />
+          <LineSeries
+            color="#F17C40"
+            data={nasdaqCoords}
+          />
+          <LineSeries
+            color="#559CD1"
+            data={cac40Coords}
+          />
+          <XAxis />
+          <YAxis />
+        </XYPlot>
+      </div>
+      <div id="table">
+        <div className="legends">
+          <div className="legend-container">
+            <div className="legend-line CAC40" />
+            <span className="legend-title">CAC40</span>
+          </div>
+          <div className="legend-container">
+            <div className="legend-line NASDAQ" />
+            <span className="legend-title">NASDAQ</span>
+          </div>
+        </div>
+        <table>
+          <tbody>
           <tr>
             <td>NASDAQ</td>
             {
@@ -123,8 +138,9 @@ const Charts = () => {
               ))
             }
           </tr>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

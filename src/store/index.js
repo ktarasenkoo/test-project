@@ -17,7 +17,7 @@ export const store = createStore(
   }, rootReducer),
   compose(
     applyMiddleware(logger, sagaMiddleware),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    _isDev_ && window.devToolsExtension ? window.devToolsExtension() : f => f
   ),
 );
 
